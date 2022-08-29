@@ -1,0 +1,38 @@
+These are the SQL commands I used for this assignment:
+#+begin_src sql
+INSERT INTO cats (name, age, breed) VALUES ('Maru', 3, 'Scottish Fold');
+#+end_src
+
+I then placed the following contents into the '01_insert_cats_into_cats_table.sql' file I created:
+#+begin_src sql
+INSERT INTO cats (name, age, breed) VALUES ("Lil Bub", 5, "American Shorthair");
+INSERT INTO cats (name, age, breed) VALUES ("Hannah", 1, "Tabby");
+#+end_src
+
+I then used the following command to insert the contents of the '01_insert_cats_into_cats_table.sql' file into the database:
+#+begin_src sql
+sqlite3 pets_database.db < 01_insert_cats_into_cats_table.sql
+#+end_src
+
+I then ran the following SELECT statements:
+#+begin_src sql
+sqlite3 pets_database.db
+
+SELECT id, name, age, breed FROM cats;
+
+SELECT * FROM cats;
+
+SELECT name FROM cats;
+
+SELECT name, age FROM cats;
+
+SELECT DISTINCT name FROM cats;
+
+SELECT * FROM cats WHERE name = "Maru";
+
+SELECT * FROM cats WHERE age < 2;
+
+UPDATE cats SET name = "Hana" WHERE name = "Hannah";
+
+DELETE FROM cats WHERE id = 3;
+#+end_src
